@@ -3,7 +3,7 @@ import { userApi } from "./userApi";
 
 export const authApi = createApi({
   reducerPath: "authApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "/api/v1" }),
+  baseQuery: fetchBaseQuery({ baseUrl: "https://e-commerce-backend-paid.onrender.com/api/v1" }),
   endpoints: (builder) => ({
     register: builder.mutation({
       query(body) {

@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import { connectDatabase } from "./config/dbConnect.js";
 import errorMiddleware from "./middlewares/errors.js";
+import cors from "cors"
 
 import path from "path";
 // import { fileURLToPath } from "url";
@@ -32,8 +33,14 @@ app.use(
     },
   })
 );
-app.use(cookieParser());
+const corsOptions = {
+  origin: 'http://localhost:3000',
+  credentials: true,
+  optionSuccessStatus: 200
+}
 
+app.use(cookieParser());
+app.use(cors(corsOptions))
 // Import all routes
 import productRoutes from "./routes/products.js";
 import authRoutes from "./routes/auth.js";
