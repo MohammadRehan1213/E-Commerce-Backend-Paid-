@@ -3,11 +3,11 @@ import { setIsAuthenticated, setLoading, setUser } from "../features/userSlice";
 
 export const userApi = createApi({
   reducerPath: "userApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "https://e-commerce-backend-paid.onrender.com/api/v1" }),
+  baseQuery: fetchBaseQuery({ baseUrl: "/api/v1" }),
   tagTypes: ["User", "AdminUsers", "AdminUser"],
   endpoints: (builder) => ({
     getMe: builder.query({
-      query: () => `/me`,
+      query: () => "/me",
       transformResponse: (result) => result.user,
       async onQueryStarted(args, { dispatch, queryFulfilled }) {
         try {
